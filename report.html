@@ -13170,12 +13170,19 @@ Make sure to keep track of the various features and conditions you tried before 
         <span class="c1"># Remove the &#39;pass&#39; statement below </span>
         <span class="c1"># and write your prediction conditions here</span>
         <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Sex</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span><span class="p">:</span>
+            <span class="c1"># Age feature: Females and males were more likely to survive if aged younger than 10</span>
             <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Age</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
                 <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Pclass feature: Class 1 and Class 2 cabins were safer (i.e easier to escape </span>
+                <span class="c1"># when the Titanic was sinking). Fare was tested ( replacing Pclass), but got lower</span>
+                <span class="c1"># prediction accuracy rates. Still figuring that one out.</span>
                 <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
                     <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># SibSp &amp; Parch features: Passengers with smaller families had a higher chance of</span>
+                    <span class="c1"># getting out safer. (i.e more likely to take smaller space on a crowded lifeboat)</span>
+                    <span class="c1"># Didn&#39;t apply to Jack though.</span>
                     <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">SibSp</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
                         <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
@@ -13183,11 +13190,17 @@ Make sure to keep track of the various features and conditions you tried before 
                             <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Age feature: Females and males were more likely to survive if aged younger than 10</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Age</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="c1"># Pclass feature: Class 1 and Class 2 cabins were safer (i.e easier to escape </span>
+                <span class="c1"># when the Titanic was sinking). Fare was tested ( replacing Pclass), but got lower</span>
+                <span class="c1"># prediction accuracy rates. Still figuring that one out.</span>
                 <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
                     <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># SibSp &amp; Parch features: Passengers with smaller families had a higher chance of</span>
+                    <span class="c1"># getting out safer. (i.e more likely to take smaller space on a crowded lifeboat)</span>
                     <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">SibSp</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
                         <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
